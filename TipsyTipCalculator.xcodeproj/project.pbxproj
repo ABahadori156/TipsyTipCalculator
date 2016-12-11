@@ -12,6 +12,7 @@
 		351DF6261DFDC70100DEA159 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 351DF6241DFDC70100DEA159 /* Main.storyboard */; };
 		351DF6281DFDC70100DEA159 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 351DF6271DFDC70100DEA159 /* Assets.xcassets */; };
 		351DF62B1DFDC70100DEA159 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 351DF6291DFDC70100DEA159 /* LaunchScreen.storyboard */; };
+		351DF6361DFDDBF500DEA159 /* TipCalcBrains.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351DF6351DFDDBF500DEA159 /* TipCalcBrains.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		351DF6271DFDC70100DEA159 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		351DF62A1DFDC70100DEA159 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		351DF62C1DFDC70100DEA159 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		351DF6351DFDDBF500DEA159 /* TipCalcBrains.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipCalcBrains.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,9 @@
 		351DF61F1DFDC70100DEA159 /* TipsyTipCalculator */ = {
 			isa = PBXGroup;
 			children = (
+				351DF6341DFDDBD200DEA159 /* Controller */,
+				351DF6331DFDDBCB00DEA159 /* View */,
+				351DF6321DFDDBBF00DEA159 /* Model */,
 				351DF6201DFDC70100DEA159 /* AppDelegate.swift */,
 				351DF6221DFDC70100DEA159 /* ViewController.swift */,
 				351DF6241DFDC70100DEA159 /* Main.storyboard */,
@@ -62,6 +67,28 @@
 				351DF62C1DFDC70100DEA159 /* Info.plist */,
 			);
 			path = TipsyTipCalculator;
+			sourceTree = "<group>";
+		};
+		351DF6321DFDDBBF00DEA159 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				351DF6351DFDDBF500DEA159 /* TipCalcBrains.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		351DF6331DFDDBCB00DEA159 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		351DF6341DFDDBD200DEA159 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +166,7 @@
 			files = (
 				351DF6231DFDC70100DEA159 /* ViewController.swift in Sources */,
 				351DF6211DFDC70100DEA159 /* AppDelegate.swift in Sources */,
+				351DF6361DFDDBF500DEA159 /* TipCalcBrains.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
