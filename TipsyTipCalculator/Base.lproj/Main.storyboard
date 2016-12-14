@@ -53,7 +53,7 @@
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="3M9-k6-9V8">
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tip:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IDj-ad-xZc">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tip: 5%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IDj-ad-xZc">
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="73" id="aYt-di-n1P"/>
                                                 </constraints>
@@ -117,7 +117,7 @@
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lXS-eP-DGs">
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Split" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xY7-BJ-FAZ">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Split: 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xY7-BJ-FAZ">
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="85" id="h1z-Ta-Eln"/>
                                                 </constraints>
@@ -125,7 +125,11 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="fyV-3s-pwX"/>
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" minValue="2" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="fyV-3s-pwX">
+                                                <connections>
+                                                    <action selector="splitIndividualChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="Hod-SC-Urb"/>
+                                                </connections>
+                                            </slider>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="kVr-gX-dOG">
@@ -169,6 +173,9 @@
                     </view>
                     <connections>
                         <outlet property="billTextField" destination="wxc-ef-BFt" id="QwQ-Zb-bpM"/>
+                        <outlet property="splitAmount" destination="Dll-TS-hyI" id="YHh-eS-Ec8"/>
+                        <outlet property="splitIndividual" destination="xY7-BJ-FAZ" id="9Ns-9A-Fdy"/>
+                        <outlet property="splitSlider" destination="fyV-3s-pwX" id="R9c-oh-GnW"/>
                         <outlet property="tipAmountLbl" destination="JXS-GP-doi" id="3xs-vD-4sC"/>
                         <outlet property="tipPercentLbl" destination="IDj-ad-xZc" id="Yq3-S0-Q44"/>
                         <outlet property="tipPercentSlider" destination="dv4-OU-hel" id="TdG-vI-9eq"/>

@@ -14,8 +14,13 @@ class MainVC: UIViewController {
     @IBOutlet weak var tipPercentSlider: UISlider!
     @IBOutlet weak var tipAmountLbl: UILabel!
     @IBOutlet weak var totalAmount: UILabel!
-
-    let tipCalc = TipsyCalc(billAmount: 50.00, tipPercent: 0.15)
+    
+    @IBOutlet weak var splitSlider: UISlider!
+    @IBOutlet weak var splitIndividual: UILabel!
+    @IBOutlet weak var splitAmount: UILabel!
+    
+    
+    let tipCalc = TipsyCalc(billAmount: 50.00, tipPercent: 0.15, friends: 2)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,12 +32,19 @@ class MainVC: UIViewController {
     //We set the event to 'Editing changed' - everytime the text in this text field changes, you let me know so I can execute this function
     @IBAction func billCharge(_ sender: UITextField) {
         calculateTip()
+        calculateSplit()
     }
    
     @IBAction func tipPercentChanged(_ sender: AnyObject) {
         tipPercentValue()
         calculateTip()
     }
+    
+    @IBAction func splitIndividualChanged(_ sender: AnyObject) {
+        splitIndividualValue()
+        calculateSplit()
+    }
+    
     
     func calculateTip() {
         tipCalc.tipPercent = Double(tipPercentSlider.value)
@@ -41,14 +53,31 @@ class MainVC: UIViewController {
         updateBillUI()
     }
     
+    func calculateSplit() {
+        tipCalc.tipPercent = Double(tipPercentSlider.value)
+        tipCalc.billAmount = ((billTextField.text)! as NSString).doubleValue
+        tipCalc.friends = Int(splitSlider.value)
+        tipCalc.calculateSplitAmount()
+        updateBillUI()
+        
+    }
+    
     func updateBillUI() {
         tipAmountLbl.text = String(format: "$%0.2f", tipCalc.tipAmount)
         totalAmount.text = String(format: "$%0.2f", tipCalc.totalAmount)
+        splitAmount.text = String(format: "$%0.2f", tipCalc.splitAmount)
     }
 
     func tipPercentValue() {
         tipPercentLbl.text = "Tip: \(Int(tipPercentSlider.value * 100))%"
     }
+    
+    func splitIndividualValue() {
+        splitIndividual.text = "Split: \(Int(splitSlider.value))"
+    }
+    
+    
+    
 
 }
 
