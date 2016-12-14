@@ -27,6 +27,11 @@ class MainVC: UIViewController {
         
         tipPercentValue()
         
+        let tap = UITapGestureRecognizer.init(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tap)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
 
     //We set the event to 'Editing changed' - everytime the text in this text field changes, you let me know so I can execute this function
@@ -76,7 +81,29 @@ class MainVC: UIViewController {
         splitIndividual.text = "Split: \(Int(splitSlider.value))"
     }
     
+    func dismissKeyboard() {
+        // self.view.endEditing(true)
+        billTextField.resignFirstResponder()
+    }
     
+    func keyboardWillShow(notification: NSNotification) {
+        
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0{
+                self.view.frame.origin.y -= keyboardSize.height / 3
+            }
+        }
+        
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y != 0{
+                self.view.frame.origin.y += keyboardSize.height / 3
+            }
+        }
+    }
+
     
 
 }
